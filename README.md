@@ -1,142 +1,70 @@
- 💸 Expense Sharing App (Backend) — MERN Stack
+# Getting Started with Create React App
 
-A backend system for an **Expense Sharing Application** similar to Splitwise.  
-This project allows users to create groups, add shared expenses, calculate balances, and settle dues.  
-Built using **Node.js, Express, MongoDB (Mongoose)**.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
+## Available Scripts
 
-🚀 Features
+In the project directory, you can run:
 
- 👥 Users
-- Create and manage users
-- Store basic user information (name, email)
+### `npm start`
 
- 👨‍👩‍👧 Groups
-- Create groups with multiple members
-- Each group contains users and expenses
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### 💰 Expenses
-Supports three split types:
-- **Equal split**
-- **Exact split**
-- **Percentage split**
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
- 🧮 Balance Management
-- Tracks who owes whom
-- Maintains simplified balances
-- Allows **settlement** between users
+### `npm test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
- 🧱 Tech Stack
+### `npm run build`
 
-| Layer      | Technology |
-|------------|------------|
-| Backend    | Node.js, Express.js |
-| Database   | MongoDB, Mongoose |
-| Tools      | Postman / Thunder Client |
-| Version Control | Git, GitHub |
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
- 📂 Folder Structure
-expense-sharing-app/
-│── server.js
-│── package.json
-│── .gitignore
-│── README.md
-│── /config
-│ └── db.js
-│── /controllers
-│ ├── userController.js
-│ ├── groupController.js
-│ ├── expenseController.js
-│ └── balanceController.js
-│── /models
-│ ├── User.js
-│ ├── Group.js
-│ ├── Expense.js
-│ └── Balance.js
-│── /routes
-│ ├── userRoutes.js
-│ ├── groupRoutes.js
-│ ├── expenseRoutes.js
-│ └── balanceRoutes.js
-│── .env.example
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-.gitignore--consists node_modules && .env file which is not added in above uploads
----
+### `npm run eject`
 
- ⚙️ Installation & Setup
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
- 🔧 1. Clone the repository
-#bash
-git clone https://github.com/<your-username>/expense-sharing-app.git
-cd expense-sharing-app```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-🔧 2. Install dependencies
-npm install
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-🔧 3. Create .env file
-Create a file named .env in the root folder:
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/expenseApp
-(Use your own MongoDB connection string.)
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-🔧 4. Start the server
-npm run dev
-Server runs on:
-http://localhost:5000
+## Learn More
 
-🛠 API Endpoints
-👤 User Routes
-Method	Endpoint	Description
-POST	/api/users	Create user
-GET	/api/users	Get all users
-👨‍👩‍👧 Group Routes
-Method	Endpoint	Description
-POST	/api/groups	Create group
-💰 Expense Routes
-Method	Endpoint	Description
-POST	/api/expenses	Add expense (equal/exact/percent split)
-📊 Balance Routes
-Method	Endpoint	Description
-GET	/api/balances	Get all balances
-GET	/api/balances/user/:id	Get balance for a user
-GET	/api/balances/group/:groupId	Get balances for a group
-POST	/api/balances/settle	Settle dues between users
-🧪 Testing Your API
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-You can test using:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-✔ Postman
-✔ Thunder Client (VS Code extension)
-✔ Browser (GET requests only)
-✔ cURL commands
+### Code Splitting
 
-📝 Example POST Request (Add Expense)
-{
-  "groupId": "64a2f0d83a...",
-  "paidBy": "64a2ef953a...",
-  "amount": 1000,
-  "splitType": "EQUAL",
-  "participants": [
-    "64a2ef953a...",
-    "64a2ef983a...",
-    "64a2ef9a3a..."
-  ]
-}
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-🤝 Contribution
+### Analyzing the Bundle Size
 
-Pull requests are welcome.
-For major changes, please open an issue first to discuss what you would like to change.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-📜 License
+### Making a Progressive Web App
 
-This project is licensed under the MIT License.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-👨‍💻 Author
-AYUSHRAJ
-email:jadhavakshith466@gmail.com
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
