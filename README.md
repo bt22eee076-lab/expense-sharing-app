@@ -1,70 +1,290 @@
-# Getting Started with Create React App
+# 💸 Expense Sharing App (Backend) — MERN Stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A backend system for an **Expense Sharing Application** similar to Splitwise.  
+This project allows users to create groups, add shared expenses, calculate balances, and settle dues.  
+Built using **Node.js, Express, MongoDB (Mongoose)**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### 👥 Users
+- Create and manage users
+- Store basic user information (name, email)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 👨‍👩‍👧 Groups
+- Create groups with multiple members
+- Each group contains users and expenses
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 💰 Expenses
+Supports three split types:
+- **Equal split**
+- **Exact split**
+- **Percentage split**
 
-### `npm test`
+### 🧮 Balance Management
+- Tracks who owes whom
+- Maintains simplified balances
+- Allows **settlement** between users
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧱 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer      | Technology |
+|------------|------------|
+| Backend    | Node.js, Express.js |
+| Database   | MongoDB, Mongoose |
+| Tools      | Postman / Thunder Client |
+| Version Control | Git, GitHub |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📂 Folder Structure
+expense-sharing-app/
+│── server.js
+│── package.json
+│── .gitignore
+│── README.md
+│── /config
+│ └── db.js
+│── /controllers
+│ ├── userController.js
+│ ├── groupController.js
+│ ├── expenseController.js
+│ └── balanceController.js
+│── /models
+│ ├── User.js
+│ ├── Group.js
+│ ├── Expense.js
+│ └── Balance.js
+│── /routes
+│ ├── userRoutes.js
+│ ├── groupRoutes.js
+│ ├── expenseRoutes.js
+│ └── balanceRoutes.js
+│── .env.example
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Installation & Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔧 1. Clone the repository
+`bash
+git clone https://github.com/<your-username>/expense-sharing-app.git
+cd expense-sharing-app
+🔧 2. Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🔧 3. Create .env file
 
-## Learn More
+Create a file named .env in the root folder:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/expenseApp
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+(Use your own MongoDB connection string.)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔧 4. Start the server
+npm run dev
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Server runs on:
 
-### Making a Progressive Web App
+http://localhost:5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🛠 API Endpoints
+👤 User Routes
+Method	Endpoint	Description
+POST	/api/users	Create user
+GET	/api/users	Get all users
+👨‍👩‍👧 Group Routes
+Method	Endpoint	Description
+POST	/api/groups	Create group
+💰 Expense Routes
+Method	Endpoint	Description
+POST	/api/expenses	Add expense (equal/exact/percent split)
+📊 Balance Routes
+Method	Endpoint	Description
+GET	/api/balances	Get all balances
+GET	/api/balances/user/:id	Get balance for a user
+GET	/api/balances/group/:groupId	Get balances for a group
+POST	/api/balances/settle	Settle dues between users
+🧪 Testing Your API
 
-### Advanced Configuration
+You can test using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+✔ Postman
+✔ Thunder Client (VS Code extension)
+✔ Browser (GET requests only)
+✔ cURL commands
+📝 Example POST Request (Add Expense)
+{
+  "groupId": "64a2f0d83a...",
+  "paidBy": "64a2ef953a...",
+  "amount": 1000,
+  "splitType": "EQUAL",
+  "participants": [
+    "64a2ef953a...",
+    "64a2ef983a...",
+    "64a2ef9a3a..."
+  ]
+}
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+//FRONTEND
+📘 README.md (Frontend)
+Expense Sharing App — Frontend (React.js)
 
-### `npm run build` fails to minify
+This is the frontend for the Expense Sharing Application, inspired by Splitwise.
+It connects with the Node.js + Express + MongoDB backend to allow users to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Create Users
+
+Create Groups
+
+Add Shared Expenses
+
+View Simplified Balances
+
+Settle Dues
+
+This frontend is built using React, Axios, and React Router.
+
+🚀 Live Features
+
+Add User
+
+Create Group using User IDs
+
+Add Equal Split Expense
+
+View All Balances
+
+Settle Between Two Users
+
+Clean and simple UI for demonstration
+
+🛠 Tech Stack
+
+React.js
+
+Axios
+
+React Router DOM
+
+JavaScript
+
+HTML / CSS
+
+Node.js (backend dependency)
+
+📦 Folder Structure
+src/
+ ├── api/
+ │     └── api.js              # Axios instance (backend URL)
+ ├── components/
+ │     └── NavBar.js           # Navigation bar
+ ├── pages/
+ │     ├── AddUser.js          # Create user page
+ │     ├── AddGroup.js         # Create group using user IDs
+ │     ├── AddExpense.js       # Add equal-split expenses
+ │     ├── ViewBalances.js     # Display all balances
+ │     ├── SettleBalance.js    # Settle dues between users
+ ├── App.js                    # Routing & structure
+ ├── index.js                  # Main entry point
+
+⚙️ Installation & Setup
+1. Clone the Repo
+git clone https://github.com/bt22eee076/expense-sharing-frontend.git
+cd expense-sharing-frontend
+
+2. Install Dependencies
+npm install
+
+3. Start Development Server
+npm start
+
+
+Frontend runs at:
+
+http://localhost:3000
+
+🔗 Backend Connection
+
+The frontend communicates with backend using Axios at:
+
+📌 /src/api/api.js
+
+export default axios.create({
+  baseURL: "http://localhost:5000/api" 
+});
+
+
+Replace with  deployed backend URL if needed:
+
+https://your-render-app.onrender.com/api
+
+🧪 How to Test Functionality
+✔ Add User
+
+Enter user name & email → click "Create User"
+
+✔ Create Group
+
+Enter group name → list member ObjectIds separated by commas.
+
+✔ Add Expense
+
+Supports Equal Split → backend automatically updates balances.
+
+✔ View Balances
+
+Shows who owes whom.
+
+✔ Settle Balance
+
+Enter user1 ID, user2 ID, and amount → dues are updated.
+
+📤 Deployment (Netlify Recommended)
+
+Build project:
+
+npm run build
+
+
+Upload the /build folder to Netlify
+
+Your frontend goes live!
+
+
+
+
+
+👨‍💻 Author
+
+Ayush
+Expense Sharing MERN App Developer
+Focused on backend architecture, API design, and clean frontend integration.
+
+🤝 Contribution
+
+Pull requests are welcome.
+For major changes, please open an issue first to discuss what you would like to change.
+
+📜 License
+
+This project is licensed under the MIT License.
+
+👨‍💻 Author
+
+AYUSHRAJ
+
+
+Email: jadhavakshith466@gmail.com
+
+
+---
+
